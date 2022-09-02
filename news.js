@@ -1,9 +1,22 @@
-const loadMeals = (search) =>{
-    /// ডাইনামিক করতে ডলার সাইন দিয়ে করা যায় 
-    const url = `https://openapi.programming-hero.com/api/news/category/01`
+const loadCategories = () =>{
+    
+    const url = `https://openapi.programming-hero.com/api/news/categories`
     fetch(url)
     .then(res => res.json())
-    .then(status => console.log(status));
+    .then(status => displayCategoies(status.data.news_category));
 }
 
-loadMeals()
+ /////---category buttons--------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+const displayCategoies = catagory =>{
+    const catagoriesContainer = document.getElementById('catagory')
+    catagory.forEach(news_category => {
+        
+         const catagoryBtn = document.createElement('button');
+         catagoryBtn.classList.add('categoryBtn');
+         catagoryBtn.innerHTML = `${news_category.category_name}`;
+         catagoriesContainer.appendChild(catagoryBtn);
+    });
+}
+
+
+loadCategories()
