@@ -30,6 +30,8 @@ const displayCategoies = catagory =>{
 const onclickCategory =(category_id) =>{
    
   loadArticles(category_id);
+  
+  
   toggleSpinner(true);
 }
 
@@ -67,10 +69,14 @@ const displayArticle = article => {
     articleCard2.textContent = 'No News';
     toggleSpinner(false);
   }
+
   
+
+  
+
   article.forEach(data => {
       const newsCard = document.createElement('div');
-
+      document.getElementById('sortResult').innerHTML = `${article.length} items found in this category`
           newsCard.innerHTML = `
       <div class="card  m-3" style=" height:300px ;">
       <div class="row g-0">
@@ -109,6 +115,8 @@ const displayArticle = article => {
       // console.log(dbs);
   
       articleCard2.appendChild(newsCard);
+
+      
       // console.log()
    
       toggleSpinner(false);
@@ -130,7 +138,9 @@ const loadNewsDetails = async id =>{
 const displayNewsDetails = loadData =>{
   const appendNewsDetails = document.getElementById('newsModal');
   appendNewsDetails.textContent = '';
+  
   loadData.forEach(data => {
+    
     const newsDetails = document.createElement('div');
     newsDetails.innerHTML =`
     <div class="modal-content">
@@ -172,4 +182,4 @@ const displayNewsDetails = loadData =>{
 
 
 loadCategories()
-loadArticles(1)
+loadArticles(8)
