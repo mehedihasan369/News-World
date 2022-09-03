@@ -37,7 +37,7 @@ const loadArticles = (categoryId) =>{
 
 const displayArticle = article => {
   const articleCard2 = document.getElementById('articleCard');
-  articleCard.textContent = '';
+  articleCard2.textContent = '';
   article.forEach(data => {
       const newsCard = document.createElement('div');
 
@@ -50,7 +50,7 @@ const displayArticle = article => {
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">${data.title}</h5>
-            <p class="card-text">${data.details.slice(0,350)}</p>
+            <p class="card-text">${data.details.slice(0,350)}...</p>
               <div class="d-flex justify-content-between">
                         <div class="d-flex">
                            <img src="${data.author.img}" class="img-fluid rounded-5 m-1"        style="height: 3rem; width: 3rem;">
@@ -87,7 +87,7 @@ const displayArticle = article => {
       
   });
 }
-/////////
+/////////---modal-------------
 
 const loadNewsDetails = async id =>{
   const url =`https://openapi.programming-hero.com/api/news/${id}`;
@@ -97,32 +97,33 @@ const loadNewsDetails = async id =>{
 }
 
 const displayNewsDetails = loadData =>{
-  const appendNewsDetails = document.getElementById('newsModal')
+  const appendNewsDetails = document.getElementById('newsModal');
+  appendNewsDetails.textContent = '';
   loadData.forEach(data => {
     const newsDetails = document.createElement('div');
     newsDetails.innerHTML =`
     <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="newsModalLabel">${data.title}</h5>
+      <h5 class="modal-title" id="newsModalLabel">${data.title ? data.title : 'No data available'}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <img src="${data.thumbnail_url}" class="w-50 h-50">
+        <img src="${data.thumbnail_url ? data.thumbnail_url : 'No image available'}" class="w-100 h-50">
         <div>
-            ${data.details}
+            ${data.details ? data.details : 'No data available'}
         </div>
         
     </div>
     <!--------------->
     <div class="d-flex justify-content-between">
         <div class="d-flex">
-        <img src="${data.author.img}" class="img-fluid rounded-5 m-1" style="height: 3rem; width: 3rem;">
-        <p class="card-text"><small class="fw-semibold">${data.author.name}</small><br> <small class="text-muted">${data.author.published_date}</small></p>
+        <img src="${data.author.img ? data.author.img : 'No image available.'}" class="img-fluid rounded-5 m-1" style="height: 3rem; width: 3rem;">
+        <p class="card-text"><small class="fw-semibold">${data.author.name ? data.author.name : 'No data available'}</small><br> <small class="text-muted">${data.author.published_date ? data.author.published_date : 'No information available.'}</small></p>
     </div>
 
      <div class="text-muted d-flex">
        <i class="fa-regular fa-eye fs-2"></i>
-         <p class="fw-bold fs-5">${data.total_view}</p>
+         <p class="fw-bold fs-5">${data.total_view ? data.total_view : 'No data available'}</p>
     </div>
    </div>
 

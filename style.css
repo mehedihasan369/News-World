@@ -8,3 +8,9 @@
     width: 3rem;
     height: 3rem;
 }
+
+#newsModal{
+    width: 70%;
+    
+    left: 15%;
+}
