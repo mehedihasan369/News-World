@@ -39,8 +39,45 @@ const loadArticles = (categoryId) =>{
 const displayArticle = article => {
     const articleCard = document.getElementById('articleCard')
     article.forEach(data => {
-        console.log(data);
+        const newsCard = document.createElement('div');
+        newsCard.innerHTML = `
+        <div class="card  m-3" style=" height:300px ;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${data.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${data.title}</h5>
+              <p class="card-text">${data.details.slice(0,350)}</p>
+                <div class="d-flex justify-content-between">
+                          <div class="d-flex">
+                             <img src="${data.author.img}" class="img-fluid rounded-5 m-1"        style="height: 3rem; width: 3rem;">
+                             <p class="card-text"><small class="fw-semibold">${data.author.name}</small><br> <small class="text-muted">${data.author.published_date}</small></p>
+                           </div>
+
+                        <div class="text-muted d-flex">
+                          <i class="fa-regular fa-eye fs-2"></i>
+                           <p class="fw-bold fs-5">${data.total_view}</p>
+                        </div>
+
+                         <div>
+                          <i class="fa-solid fa-arrow-right text-muted fs-2"></i>
+                         </div>
+  
+                </div>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+        articleCard.appendChild(newsCard)
     });
 }
+        // const catagoryBtn = document.createElement('div');
+        //  catagoryBtn.classList.add('categoryBtn');
+        //  catagoryBtn.innerHTML = `<button onclick="onclickCategory(${news_category.category_id})" type="button"  class="btn btn-light text-secondary">${news_category.category_name}</button>`;
+        //  catagoriesContainer.appendChild(catagoryBtn);
 
 loadCategories()
