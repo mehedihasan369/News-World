@@ -18,11 +18,26 @@ const displayCategoies = catagory =>{
       
       ///--------
   });
+  
 }
 
 ///catagory id calling--------
-const onclickCategory =(category_id) =>{ 
-  loadArticles(category_id)
+const onclickCategory =(category_id) =>{
+   
+  loadArticles(category_id);
+  toggleSpinner(true);
+}
+
+
+//////---------spinner-----------------
+const toggleSpinner = isLoading => {
+  const loaderSection = document.getElementById('loader');
+  if(isLoading){
+      loaderSection.classList.remove('d-none')
+  }
+  else{
+      loaderSection.classList.add('d-none');
+  }
 }
 ///>>>>>>>>>>>>>News cards------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const loadArticles = (categoryId) =>{
@@ -36,6 +51,7 @@ const loadArticles = (categoryId) =>{
 // ////----------displayArticle(status.data.news_category)-------------
 
 const displayArticle = article => {
+  
   const articleCard2 = document.getElementById('articleCard');
   articleCard2.textContent = '';
   article.forEach(data => {
@@ -45,25 +61,25 @@ const displayArticle = article => {
       <div class="card  m-3" style=" height:300px ;">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="${data.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+          <img src="${data.thumbnail_url ? data.thumbnail_url : 'No image availeable.'}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">${data.title}</h5>
+            <h5 class="card-title">${data.title ? data.title : 'No title available.'}</h5>
             <p class="card-text">${data.details.slice(0,350)}...</p>
               <div class="d-flex justify-content-between">
                         <div class="d-flex">
-                           <img src="${data.author.img}" class="img-fluid rounded-5 m-1"        style="height: 3rem; width: 3rem;">
-                           <p class="card-text"><small class="fw-semibold">${data.author.name}</small><br> <small class="text-muted">${data.author.published_date}</small></p>
+                           <img src="${data.author.img ? data.author.img : 'No image availeable.'}" class="img-fluid rounded-5 m-1"        style="height: 3rem; width: 3rem;">
+                           <p class="card-text"><small class="fw-semibold">${data.author.name ? data.author.name : 'No data available.'}</small><br> <small class="text-muted">${data.author.published_date ? data.author.published_date : 'No data available'}</small></p>
                          </div>
 
                       <div class="text-muted d-flex">
                         <i class="fa-regular fa-eye fs-2"></i>
-                         <p class="fw-bold fs-5">${data.total_view}</p>
+                         <p class="fw-bold fs-5">${data.total_view ? data.total_view : 'No data available.'}</p>
                       </div>
 
                        <div>
-                       <button onclick="loadNewsDetails('${data._id}')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsModal">
+                       <button onclick="loadNewsDetails('${data._id ? data._id :'No Data availeable'}')" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#newsModal">
                        <i class="fa-solid fa-arrow-right text-primary fs-2"></i>
                      </button>
                        </div>
@@ -81,9 +97,9 @@ const displayArticle = article => {
       articleCard2.appendChild(newsCard);
       // console.log()
    
-      
+      toggleSpinner(false);
   
-
+     
       
   });
 }
@@ -94,6 +110,7 @@ const loadNewsDetails = async id =>{
   const res = await fetch(url);
   const data = await res.json();
   displayNewsDetails(data.data);
+  // toggleSpinner(true);
 }
 
 const displayNewsDetails = loadData =>{
@@ -136,9 +153,8 @@ const displayNewsDetails = loadData =>{
     appendNewsDetails.appendChild(newsDetails);
     console.log(data.author.name);
   })
+  
 }
-
-
 
 
 loadCategories()
