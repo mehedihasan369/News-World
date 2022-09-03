@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News World-Blogs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/6ada3dc592.js" crossorigin="anonymous"></script>
+</head>
+<body class="">
+<!------navber--------------->
+<nav class="navbar navbar-expand-lg bg-light ms-5 me-5 border-bottom">
+    <div class="container-fluid ">
+      <a class="navbar-brand fw-bold ms-5" href="index.html"> <span class="text-primary">News</span> World</a>
+     <div me-5 pe-5 >
+        <a href="index.html"  type="button" class="btn btn-light  fw-semibold">News</a>
+         <a href="blog.html"  type="button"  class="btn btn-light fw-semibold text-primary">Blog</a>
+      </div>
+     </div>
+  </nav>
+  
+  <!------nav down option-------->
+<!----<div id="catagory" class="ms-5 me-5 d-flex justify-content-around">
+
+</div>  --->
+
+<!------accordion---------->
+<h4 class="ms-5 mt-5 me-5 text-center" >Some important questions...</h4> 
+
+<section class="container">
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              What is the difference between var, let and const ?
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">The differences between var, let, and const variable declaration in JavaScript include:
+                Variables declared with var and const are scoped to the immediate function body.
+                Variables declared with the var keyword are hoisted. Hoisting means that the variable can be accessed in their enclosing scope even before they are declared.
+                Variables declared with the let keyword are block-scoped, which means the variables will have scope to the immediate enclosing block. </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              What is the difference between arrow function and regular function?
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">The Difference Between Regular Functions and Arrow Functions. <br>
+                Exploring the fat arrow feature in ES6.Arrow function — also called fat arrow function— is a new feature introduced in ES6 that is a more concise syntax for writing function expressions. While both regular JavaScript functions and arrow functions work in a similar manner, there are certain differences between them. <br>
+
+                1. Syntax <br>
+                
+                The arrow function example above allows a developer to accomplish the same result with fewer lines of code and approximately half the typing. <br>
+                
+                Curly brackets aren’t required if only one expression is present. The above example can also be written like this: <br>
+                
+                let add = (x, y) => x + y; <br>
+                If there’s only one argument, then the parentheses are not required either: <br>
+                
+                let squareNum = x => x * x;
+                What if there are no arguments?
+                
+                let sayHi = _ => console.log(“Hi”); <br>
+                2. Arguments binding <br>
+                Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow functions. <br>
+                
+                In case of a regular function: <br>
+                
+                let myFunc = {  
+                 showArgs(){ 
+                  console.log(arguments); 
+                 } 
+                }; 
+                myFunc.showArgs(1, 2, 3, 4);
+                
+                In case of an arrow function:
+                
+                let myFunc = {  
+                  showArgs : () => { 
+                  console.log(...arguments); 
+                 } 
+                }; 
+                myFunc.showArgs(1, 2, 3, 4); <br>
+                
+                3. Use of this keyword <br>
+                Unlike regular functions, arrow functions do not have their own this. The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function. <br>
+                
+                
+                
+                4. Using new keyword <br>
+                Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. <br>
+                
+                However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword. <br>
+                
+                let add = (x, y) => console.log(x + y);
+                new add(2,3); <br>
+                
+                5. No duplicate named parameters
+                Arrow functions can never have duplicate named parameters, whether in strict or non-strict mode. <br>
+                
+                It means that the following is valid JavaScript: <br>
+                
+                function add(x, x){}
+                It is not, however, when using strict mode:
+                
+                'use strict';
+                function add(x, x){}
+                // SyntaxError: duplicate formal argument x
+                With arrow functions, duplicate named arguments are always, regardless of strict or non-strict mode, invalid.
+                
+                (x, x) => {}
+                // SyntaxError: duplicate argument names not allowed in this context.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              What is the difference between map ,forEach ,filter and find ?
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">.forEach:  <br>
+
+                .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.<br>
+                
+                Example:<br>
+                In the example below we would use .forEach() to iterate over an array of food and log that we would want to eat each of them.<br>
+                
+                let food = ['mango','rice','pepper','pear'];<br>
+                food.forEach(function(foodItem){ console.log('I want to eat '+foodItem);<br>
+                });
+                Running this on your console;<br>
+                
+                forEach result<br>
+                
+                .map():<br>
+                .map() executes the same code on every element in an array and returns a new array with the updated elements.<br>
+                
+                Example:<br>
+                In the example below we would use .map to iterate over the elements of the cost array and divide each element by 10, then assign our new array containing the new cost to the variable newCost.<br>
+                
+                let cost = [100,400,300,700];<br>
+                let newCost = cost.map(function(costItem){ return costItem / 10;<br>
+                });
+                console.log(newCost);<br>
+                Running this on your console;<br>
+                
+                map result<br>
+                
+                .filter():<br>
+                .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.<br>
+                
+                Example: <br>
+                In the example below we would use .filter to return values that are less than 200. <br>
+                
+                let cost = [100,400,50,40,700]; <br>
+                let smallCost = cost.filter(function(costItem){ return costItem < 200
+                }); <br>
+                console.log(smallCost); <br>
+                Running this on your console; <br>
+                
+                filter result <br>
+                
+                That's all folks...</div>
+          </div>
+        </div>
+      </div>
+
+</section>
+
+
+<!-----footer----------->
+<footer>
+<h6 class="m-5 p-5 text-center border-top border-dark">Copyright 2022 News World</h6>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+
+</html>
