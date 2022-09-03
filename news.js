@@ -38,6 +38,7 @@ const loadArticles = (categoryId) =>{
 
 const displayArticle = article => {
     const articleCard = document.getElementById('articleCard')
+    articleCard.textContent = '';
     article.forEach(data => {
         const newsCard = document.createElement('div');
         newsCard.innerHTML = `
