@@ -3,6 +3,11 @@ const loadCategories = () =>{
   fetch(url)
   .then(res => res.json())
   .then(status => displayCategoies(status.data.news_category));
+  try {
+  }
+  catch(err) {
+    document.getElementById("sortResult").innerHTML = err.message;
+  }
 }
 
 /////---category buttons--------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -158,3 +163,4 @@ const displayNewsDetails = loadData =>{
 
 
 loadCategories()
+loadArticles(1)

@@ -1,5 +1,5 @@
 .categoryBtn{
-    background-color: #ffff;
+    
     border: 0;
     color: rgb(75, 72, 72);
 }
@@ -14,3 +14,7 @@
     
     left: 15%;
 }
+body{
+    background-color: aliceblue;
+}
+
