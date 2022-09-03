@@ -64,7 +64,7 @@ const displayArticle = article => {
   const articleCard2 = document.getElementById('articleCard');
   articleCard2.textContent = '';
   if (article == '') {
-    articleCard2.textContent = 'Data is undefined';
+    articleCard2.textContent = 'No News';
     toggleSpinner(false);
   }
   
