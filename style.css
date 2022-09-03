@@ -3,3 +3,8 @@
     border: 0;
     color: rgb(75, 72, 72);
 }
+
+.size{
+    width: 3rem;
+    height: 3rem;
+}
