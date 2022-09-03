@@ -46,12 +46,16 @@ const toggleSpinner = isLoading => {
 }
 ///>>>>>>>>>>>>>News cards------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const loadArticles = (categoryId) =>{
+  
   const url = `https://openapi.programming-hero.com/api/news/category/0${categoryId}`
   fetch(url)
   .then(res => res.json())
   .then(status => displayArticle(status.data) );
+
  
 }
+
+
 
 // ////----------displayArticle(status.data.news_category)-------------
 
@@ -59,6 +63,11 @@ const displayArticle = article => {
   
   const articleCard2 = document.getElementById('articleCard');
   articleCard2.textContent = '';
+  if (article == '') {
+    articleCard2.textContent = 'Data is undefined';
+    toggleSpinner(false);
+  }
+  
   article.forEach(data => {
       const newsCard = document.createElement('div');
 
