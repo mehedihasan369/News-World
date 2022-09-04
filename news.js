@@ -78,10 +78,10 @@ const displayArticle = article => {
       const newsCard = document.createElement('div');
       document.getElementById('sortResult').innerHTML = `${article.length} items found in this category`
           newsCard.innerHTML = `
-      <div class="card  m-3" style=" height:300px ;">
+      <div class="card  m-3 mid-box" style=" ">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="${data.thumbnail_url ? data.thumbnail_url : 'No image availeable.'}" class="img-fluid rounded-start" alt="...">
+          <img src="${data.thumbnail_url ? data.thumbnail_url : 'No image availeable.'}" class="img-fluid rounded-start article-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">

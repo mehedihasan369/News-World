@@ -18,3 +18,21 @@ body{
     background-color: aliceblue;
 }
 
+ 
+@media only screen and (max-width: 600px) {.nav-category{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+ }
+ .news-items{
+    height: 700px;
+ }
+ .mid-box{
+    height: 700px;
+}
+.article-img{width: 250px;
+   height: 150px;
+}
+
+
+}
